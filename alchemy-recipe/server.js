@@ -32,12 +32,15 @@ api.get('/potion/:id(\\d+)', function(req, res){
 
 app.use('/api', api);
 
-var server = function(port=3000) {
-  return app.listen(port, () => console.log('Example app listening on port 3000!'))
+var server = function(port=3000, msg="") {
+  return {
+    app:app.listen(port),
+    model: model,
+  };
 }
 
 if ( require.main === module ) {
-  server(3000);
+  app.listen(3000, () => console.log('Example app listening on port 3000!'))
 } else {
   module.exports = server;
 }

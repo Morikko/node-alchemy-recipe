@@ -45,4 +45,7 @@ module.exports = {
   ingredients: ingredients,
   potions: potions,
   recipes: recipes,
+  recipeFactory: recipeFactory,
+  potionFactory: potionFactory,
+  ingredientFactory: ingredientFactory,
 }
