@@ -25,5 +25,9 @@
   "homepage": "https://github.com/Morikko/node-alchemy-recipe#readme",
   "dependencies": {
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "jasmine": "^3.0.0",
+    "supertest": "^3.0.0"
   }
 }

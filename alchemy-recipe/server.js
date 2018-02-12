@@ -6,7 +6,7 @@ var model = require('./model')
 var helper = require('./api-helper')
 
 app.get('/', function (req, res) {
-  res.send('views/index.html')
+  res.send('Hello')
 })
 
 api.get('/ingredients', function(req, res){
@@ -32,4 +32,12 @@ api.get('/potion/:id(\\d+)', function(req, res){
 
 app.use('/api', api);
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+var server = function(port=3000) {
+  return app.listen(port, () => console.log('Example app listening on port 3000!'))
+}
+
+if ( require.main === module ) {
+  server(3000);
+} else {
+  module.exports = server;
+}
