@@ -27,7 +27,7 @@ let potionFactory = function ( name, ingredientIds ) {
 }
 
 var potions = [
-  potionFactory("Invisibility", [3,4,8]),
+  potionFactory("Invisibility"),
 ]
 
 let recipeFactory = function ( potionId, ingredientIds ) {
