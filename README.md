@@ -19,7 +19,7 @@ Now, it is your turn to find the other ones!
 ## Build
 ```bash
 # From alchemy-recipe/client
-# Create the front end files the API server will provide
+# Create the front end files the server will provide (necessary)
 # Build in alchemy-recipe/client/build
 # Install the react-app dependencies first
 npm run build
@@ -27,18 +27,21 @@ npm run build
 
 ## Serve
 
-### Client
+### Server
+```bash
+# Build the client first !!
+# default port on 3000
+node alchemy-recipe/server.js
+# custom port
+PORT=3005 node alchemy-recipe/server.js
+```
+
+### Client (development only)
 ```bash
 # From alchemy-recipe/client
 # Proxy is bind to localhost:3000 (see package.json)
-# API server has to be launched
+# The API server has to be launched aside (on port 3000)
 npm start
-```
-
-### Server
-```bash
-node alchemy-recipe/server.js
-PORT=3005 node alchemy-recipe/server.js
 ```
 
 ## Test
