@@ -5,6 +5,8 @@ Each ingredient mixed has its quantity decreased by one.
 
 ![Alchemy Recipe](assets/app.png)
 
+Each tab is a different alchemist, you don't share the cooking ingredients but you share the inventory quantities.
+
 ## Create your first potion
 Click the first 3 ingredients: 
  - Vinegar
