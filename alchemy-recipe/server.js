@@ -11,7 +11,7 @@ app.engine('jsx', require('express-react-views').createEngine());
 
 
 app.get('/', function (req, res) {
-  res.render('index', {name: 'Eric'});
+  res.render('index', {ingredients: model.ingredients});
 })
 
 api.get('/ingredients', function(req, res){

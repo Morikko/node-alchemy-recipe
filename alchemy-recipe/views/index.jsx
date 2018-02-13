@@ -1,11 +1,12 @@
 var React = require('react');
 var DefaultLayout = require('./layouts/default');
+var IngredientList = require('./ingredient-list');
 
 class HelloMessage extends React.Component {
   render() {
     return (
-      <DefaultLayout title={this.props.title}>
-        <div>Hello {this.props.name}</div>
+      <DefaultLayout >
+        <IngredientList ingredients={this.props.ingredients} />
       </DefaultLayout>
     );
   }
