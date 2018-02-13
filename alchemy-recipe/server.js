@@ -1,18 +1,12 @@
 const express = require('express')
 const app = express()
+const path = require('path');
 var api = express.Router()
 
 var model = require('./model')
 var helper = require('./api-helper')
 
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jsx');
-app.engine('jsx', require('express-react-views').createEngine());
-
-
-app.get('/', function (req, res) {
-  res.render('index', {ingredients: model.ingredients});
-})
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 api.get('/ingredients', function(req, res){
   res.json(model.ingredients);
@@ -27,7 +21,7 @@ api.post('/mix/:ing1(\\d+)-:ing2(\\d+)-:ing3(\\d+)', function(req, res){
   });
 });
 
-api.get('/potion/:id(\\d+)', function(req, res){
+api.get('/potion/:id(\\d+)', function(req, res) {
   let id = parseInt(req.params.id,10)
   if ( id >= model.potions.length ) {
     res.status(500).send('The id is not a valid potion');
@@ -36,6 +30,10 @@ api.get('/potion/:id(\\d+)', function(req, res){
 });
 
 app.use('/api', api);
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 var server = function(port=3000, msg="") {
   return {

@@ -1,11 +1,11 @@
-var React = require('react');
-var Ingredient = require('./ingredient');
+import React from 'react';
+import Ingredient from './ingredient';
 
 class IngredientList extends React.Component {
   render() {
     let ingredients = this.props.ingredients.map((ingredient, index)=>{
       return(
-        <Ingredient key={"ing-"+index} name={ingredient.name} quantity={ingredient.quantity}/>
+        <Ingredient key={"ing-"+index} name={ingredient.name} quantity={ingredient.quantity} id={index} onClick={this.props.onIngredientClick} />
       )
     });
     return (
@@ -17,4 +17,4 @@ class IngredientList extends React.Component {
   }
 }
 
-module.exports = IngredientList;
+export default IngredientList;
