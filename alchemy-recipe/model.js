@@ -38,7 +38,7 @@ let recipeFactory = function ( potionId, ingredientIds ) {
 }
 
 var recipes = [
-  recipeFactory(0, [3,4,8]),
+  recipeFactory(0, [0,1,2]),
 ]
 
 module.exports = {

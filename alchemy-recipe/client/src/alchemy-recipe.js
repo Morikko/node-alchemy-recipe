@@ -48,14 +48,47 @@ class AlchemyRecipe extends React.Component {
   }
 
   onMixClick(event) {
-    console.log("button")
-    if (this.state.inCooker.length !== 3)
+    if (this.state.inCooker.length !== 3) {
       return;
+    }
 
-    // TODO call API
+    let ingIds = `${this.state.inCooker[0].id}-${this.state.inCooker[1].id}-${this.state.inCooker[2].id}`
+    fetch("/api/mix/"+ingIds, {
+      method: "post",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      //make sure to serialize your JSON body
+      body: JSON.stringify({})
+    })
+    .then(res => res.json())
+    .then(res => {
+      if ( res.potionId > -1 ) {
+        fetch('/api/potion/'+res.potionId)
+            .then(res => res.json())
+            .then(res => {
+              this.setState({potion: res.name });
+            })
+            .catch ((error) => {
+                console.log(error);
+            });
+      } else {
+        this.setState({potion: "Last potion failed" });
+      }
+
+    })
+    .then( (response) => {
+       this.setState({inCooker: []});
+       this.updateIngredients();
+    });
   }
 
   componentDidMount() {
+    this.updateIngredients();
+  }
+
+  updateIngredients() {
     fetch('/api/ingredients')
         .then(res => res.json())
         .then(res => {
