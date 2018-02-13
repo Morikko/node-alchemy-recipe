@@ -21,6 +21,7 @@ Now, it is your turn to find the other ones!
 # From alchemy-recipe/client
 # Create the front end files the API server will provide
 # Build in alchemy-recipe/client/build
+# Install the react-app dependencies first
 npm run build
 ```
 
@@ -37,6 +38,7 @@ npm start
 ### Server
 ```bash
 node alchemy-recipe/server.js
+PORT=3005 node alchemy-recipe/server.js
 ```
 
 ## Test

@@ -43,7 +43,8 @@ var server = function(port=3000, msg="") {
 }
 
 if ( require.main === module ) {
-  app.listen(3000, () => console.log('Example app listening on port 3000!'))
+  let port = process.env.PORT || 3000;
+  app.listen( port, () => console.log(`Alchemy Recipe listening on ${port} !`))
 } else {
   module.exports = server;
 }
