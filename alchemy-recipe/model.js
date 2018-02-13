@@ -1,4 +1,3 @@
-// TODO: ADD images
 let ingredientFactory = function (name, quantity) {
   return {
     name: name,
@@ -6,6 +5,7 @@ let ingredientFactory = function (name, quantity) {
   }
 }
 
+// Id == index
 var ingredients = [
   ingredientFactory("Vinegar", 14),
   ingredientFactory("Rat Head", 13),
@@ -26,8 +26,11 @@ let potionFactory = function ( name, ingredientIds ) {
   }
 }
 
+// Id == index
 var potions = [
   potionFactory("Invisibility"),
+  potionFactory("Strength"),
+  potionFactory("Speed"),
 ]
 
 let recipeFactory = function ( potionId, ingredientIds ) {
@@ -39,6 +42,9 @@ let recipeFactory = function ( potionId, ingredientIds ) {
 
 var recipes = [
   recipeFactory(0, [0,1,2]),
+  recipeFactory(1, [3,6,1]),
+  recipeFactory(2, [5,8,2]),
+  recipeFactory(0, [4,5,3]),
 ]
 
 module.exports = {

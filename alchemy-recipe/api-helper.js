@@ -5,6 +5,7 @@ var model = require('./model')
  * All valid ingredient quantities are ALWAYS decreased by 1
  * An ingredient quantity has to be bigger than 0
  * If there are more/less than 3 ingredients, the potion creation will fail
+ * The recipe must use 3 different ingredients
  * @param {Array[Number]} ingredientIds
  * @return {Number} potionId or -1 if nothing
  */

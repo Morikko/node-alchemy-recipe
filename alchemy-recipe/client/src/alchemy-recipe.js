@@ -20,7 +20,7 @@ class AlchemyRecipe extends React.Component {
       <div className="alchemy-recipe">
         <IngredientList ingredients={this.state.ingredients} onIngredientClick={this.addIngredient.bind(this)} />
         <Cooker inCooker={this.state.inCooker} onIngredientClick={this.removeIngredient.bind(this)} onMixClick={this.onMixClick.bind(this)}/>
-        <div className="potion">Last potion created: {this.state.potion}</div>
+        <div className="potion">{this.state.potion}</div>
       </div>
     );
   }
@@ -49,6 +49,7 @@ class AlchemyRecipe extends React.Component {
 
   onMixClick(event) {
     if (this.state.inCooker.length !== 3) {
+      this.setState({potion: "A potion is made of 3 ingredients" });
       return;
     }
 
@@ -68,7 +69,7 @@ class AlchemyRecipe extends React.Component {
         fetch('/api/potion/'+res.potionId)
             .then(res => res.json())
             .then(res => {
-              this.setState({potion: res.name });
+              this.setState({potion: "Potion created: " + res.name });
             })
             .catch ((error) => {
                 console.log(error);
