@@ -1,5 +1,18 @@
 # Node Alchemy Recipe
-Web App to create custom alchemy recipes with all the engine on the server side.
+
+Web App to do alchemy. Create potion by mixing 3 different ingredients together.
+Each ingredient mixed has its quantity decreased by one.
+
+![Alchemy Recipe](assets/app.png)
+
+## Create your first potion
+Click the first 3 ingredients: 
+ - Vinegar
+ - Rat Head
+ - Lama Slaver
+And mix...
+
+Now, it is your turn to find the other ones!
 
 # How to
 
@@ -39,13 +52,12 @@ jasmine
 - GET /api/ingredients -> get all the ingredients
 - POST /api/mix/:id-ing1-:id-ing2>-:id-ing3 -> mix 3 ingredients and return potion id (-1 if failed)
 
-
 # Dependencies
-All the dependencies are in package.json (project) and alchemy-recipe/client/package.json (react-app)
+All the dependencies are in package.json (project) and alchemy-recipe/client/package.json (specific to react-app)
 
- 1. Server
+## Server
   - Node
   - Express
   - Jasmine & supertest
- 2. Client
+## Client
   - React & react-app

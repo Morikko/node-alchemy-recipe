@@ -7,6 +7,7 @@ class Cooker extends React.Component {
       return (<div
         className={"cook-ing"}
         key={"cook-ing"+index+1}
+        title="Click to remove the ingredient"
         onClick={(event)=>{
           this.props.onIngredientClick(index);
         }}  >

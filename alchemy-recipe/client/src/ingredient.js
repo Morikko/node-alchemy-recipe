@@ -5,6 +5,7 @@ class Ingredient extends React.Component {
     return (
       <div
         className="ingredient"
+        title="Click to add the ingredient"
         onClick={this.onClick.bind(this)}>
         {this.props.quantity + ' ' + this.props.name}
       </div>
