@@ -5,8 +5,13 @@ var api = express.Router()
 var model = require('./model')
 var helper = require('./api-helper')
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
+
 app.get('/', function (req, res) {
-  res.send('Hello')
+  res.render('index', {name: 'Eric'});
 })
 
 api.get('/ingredients', function(req, res){
